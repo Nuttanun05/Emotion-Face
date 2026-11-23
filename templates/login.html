@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+{% block title %}เข้าสู่ระบบ · Emotion Face{% endblock %}
+{% block content %}
+<main class="auth">
+  <div class="auth-emoji" aria-hidden="true">😄</div>
+  <h1>เข้าสู่ระบบ</h1>
+  <form method="post">
+    <label>ชื่อผู้ใช้ <input name="username" autocomplete="username" required autofocus></label>
+    <label>รหัสผ่าน <input name="password" type="password" autocomplete="current-password" required></label>
+    <button class="btn" type="submit">เข้าสู่ระบบ</button>
+  </form>
+  <p class="alt">ยังไม่มีบัญชี? <a href="{{ url_for('register') }}">สมัครสมาชิก</a></p>
+</main>
+{% endblock %}

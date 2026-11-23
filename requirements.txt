@@ -1,0 +1,6 @@
+flask>=3.0
+numpy
+opencv-python>=4.9,<5
+torch
+torchvision
+ultralytics>=8.3

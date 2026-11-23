@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+{% block title %}Eimoji Face · Emotion Face{% endblock %}
+{% block content %}
+<main class="stage">
+  <div class="screen">
+    <video id="video" playsinline muted hidden></video>
+    <canvas id="canvas" width="640" height="480"></canvas>
+    <button id="startBtn" class="btn overlay-btn">เปิดกล้อง</button>
+  </div>
+  <aside class="panel">
+    <h2>Eimoji Face</h2>
+    <p class="hint">ทำหน้าหรือถือของ แล้วหน้าคุณจะกลายเป็นอีโมจิทันที</p>
+    <div class="readout"><span>อารมณ์</span><strong id="emoLabel">-</strong></div>
+    <div class="readout"><span>สิ่งของ</span><strong id="objLabel">-</strong></div>
+    <p id="err" class="err"></p>
+  </aside>
+</main>
+{% endblock %}
+{% block scripts %}<script src="{{ url_for('static', filename='js/mirror.js') }}"></script>{% endblock %}

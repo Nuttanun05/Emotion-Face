@@ -1,0 +1,30 @@
+<!doctype html>
+<html lang="th">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>{% block title %}Emotion Face{% endblock %}</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Prompt:wght@400;600;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+  {% if session.username %}
+  <nav>
+    <a class="brand" href="{{ url_for('mirror') }}">😉 Emotion Face</a>
+    <div class="links">
+      <a href="{{ url_for('mirror') }}" class="{{ 'on' if request.endpoint == 'mirror' }}">กระจกวิเศษ</a>
+      <a href="{{ url_for('game') }}" class="{{ 'on' if request.endpoint == 'game' }}">มินิเกม</a>
+      <span class="who">{{ session.username }}</span>
+      <a href="{{ url_for('logout') }}">ออกจากระบบ</a>
+    </div>
+  </nav>
+  {% endif %}
+  {% with msgs = get_flashed_messages() %}
+    {% if msgs %}<div class="flash">{% for m in msgs %}<p>{{ m }}</p>{% endfor %}</div>{% endif %}
+  {% endwith %}
+  {% block content %}{% endblock %}
+  <script src="{{ url_for('static', filename='js/common.js') }}"></script>
+  {% block scripts %}{% endblock %}
+</body>
+</html>

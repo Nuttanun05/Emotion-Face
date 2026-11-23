@@ -1,0 +1,30 @@
+{% extends "base.html" %}
+{% block title %}มินิเกม · Emotion Face{% endblock %}
+{% block content %}
+<main class="stage">
+  <div class="screen">
+    <video id="video" playsinline muted hidden></video>
+    <canvas id="canvas" width="640" height="480"></canvas>
+    <div id="flash" class="flash-msg" hidden></div>
+    <button id="startBtn" class="btn overlay-btn">เริ่มเกม</button>
+  </div>
+  <aside class="panel">
+    <div class="hud">
+      <div><span>คะแนน</span><strong id="score">0</strong></div>
+      <div><span>ชีวิต</span><strong id="lives">❤️❤️❤️</strong></div>
+      <div><span>เวลา</span><strong id="time">-</strong></div>
+    </div>
+    <div class="bar"><i id="bar"></i></div>
+    <div class="challenge">
+      <div id="chEmoji" class="chEmoji">🎯</div>
+      <p id="chText">กดเริ่มเกม แล้วทำหน้าตามโจทย์ให้ทัน</p>
+    </div>
+    <div class="readout"><span>ที่ตรวจเจอ</span><strong id="seen">-</strong></div>
+    <p id="err" class="err"></p>
+    <h3>อันดับสูงสุด</h3>
+    <ol id="board" class="board"></ol>
+    <p class="hint">คะแนนสูงสุดของคุณ: <b id="mine">0</b></p>
+  </aside>
+</main>
+{% endblock %}
+{% block scripts %}<script src="{{ url_for('static', filename='js/game.js') }}"></script>{% endblock %}
